@@ -1,0 +1,23 @@
+header {
+  width: 1400px;
+  margin: 40px auto;
+  .login-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    .login-btn {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+  }
+  .logo {
+    display: flex;
+    justify-content: center;
+    img {
+      width: 100px;
+      cursor: pointer;
+    }
+  }
+}
