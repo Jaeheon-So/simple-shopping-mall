@@ -8,6 +8,10 @@ import Navbar from "./Navbar";
 const Header = () => {
   const navigate = useNavigate();
 
+  const goMainPage = () => {
+    navigate("/");
+  };
+
   return (
     <header>
       <div className="login-wrapper">
@@ -20,7 +24,7 @@ const Header = () => {
         <img
           src="https://logos-world.net/wp-content/uploads/2020/04/HM-Logo-1999-present.jpg"
           alt="logo"
-          onClick={() => navigate("/")}
+          onClick={goMainPage}
         />
       </div>
       <Navbar />

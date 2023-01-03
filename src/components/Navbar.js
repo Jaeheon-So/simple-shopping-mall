@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "./Navbar.scss";
+import { useNavigate } from "react-router-dom";
+import { useQuery } from "../hooks/useQuery";
 
 const Navbar = () => {
+  let navigate = useNavigate();
+  let query = useQuery();
+  let searchTerm = query.get("q");
+  let [inputValue, setInputValue] = useState(searchTerm || "");
+
+  const handleInputValue = (e) => {
+    setInputValue(e.target.value);
+    navigate(`/?q=${e.target.value}`);
+  };
+
+  useEffect(() => {
+    if (!searchTerm) setInputValue("");
+    else setInputValue(searchTerm);
+  }, [searchTerm]);
+
   return (
     <div className="nav-wrapper">
       <ul className="nav">
@@ -16,10 +33,15 @@ const Navbar = () => {
         <li>Sale</li>
         <li>지속가능성</li>
       </ul>
-      <form className="search">
+      <div className="search">
         <FontAwesomeIcon icon={faSearch} />
-        <input type="text" placeholder="제품 검색" />
-      </form>
+        <input
+          type="text"
+          placeholder="제품 검색"
+          value={inputValue}
+          onChange={(e) => handleInputValue(e)}
+        />
+      </div>
     </div>
   );
 };
