@@ -5,8 +5,13 @@ import "./ProductDetail.scss";
 const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
+  const [size, setSize] = useState("사이즈 선택");
   const [isLoading, setIsLoading] = useState(true);
   const url = "http://localhost:5000/products";
+
+  const handleSize = (size) => {
+    setSize(size);
+  };
 
   const getProductDetail = async () => {
     setIsLoading(true);
@@ -40,10 +45,14 @@ const ProductDetail = () => {
                 <div className="info choice">Conscious choice</div>
               ) : null}
               <div className="dropdown-wrapper">
-                <button className="dropdown-toggle btn">사이즈 선택</button>
+                <button className="dropdown-toggle btn">{size}</button>
                 <div className="dropdown">
                   {product.size.map((size, idx) => (
-                    <div className="size" key={idx}>
+                    <div
+                      className="size"
+                      key={idx}
+                      onClick={() => handleSize(size)}
+                    >
                       {size}
                     </div>
                   ))}

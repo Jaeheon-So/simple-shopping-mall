@@ -46,20 +46,27 @@
     }
     .dropdown-wrapper {
       position: relative;
-      padding-bottom: 20px;
+      padding-bottom: 10px;
       display: inline-block;
+      width: 125px;
       &:hover .dropdown {
         display: block;
       }
       .dropdown-toggle {
+        width: 100%;
         border-color: #212529;
         color: #212529;
+        position: relative;
+        text-align: left;
         &:hover {
           background-color: #212529;
           border-color: #212529;
           color: #fff;
         }
         &::after {
+          position: absolute;
+          top: 15px;
+          right: 8px;
           border-bottom: 0;
           border-left: 0.3em solid transparent;
           border-right: 0.3em solid transparent;
@@ -90,6 +97,7 @@
     }
     .add {
       width: 100%;
+      margin-top: 10px;
       background-color: #212529;
       border-color: #212529;
       color: #fff;
