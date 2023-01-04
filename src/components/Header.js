@@ -5,8 +5,18 @@ import "./Header.scss";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 
-const Header = () => {
+const Header = ({ auth, setAuth }) => {
   const navigate = useNavigate();
+
+  const handleLogInOut = () => {
+    if (auth) {
+      if (window.confirm("정말로 로그아웃 하시겠습니까?")) {
+        setAuth(false);
+        localStorage.removeItem("login");
+        navigate("/");
+      }
+    } else navigate("/login");
+  };
 
   const goMainPage = () => {
     navigate("/");
@@ -15,9 +25,9 @@ const Header = () => {
   return (
     <header>
       <div className="login-wrapper">
-        <div className="login-btn">
+        <div className="login-btn" onClick={handleLogInOut}>
           <FontAwesomeIcon icon={faUser} />
-          <div>로그인</div>
+          <div>{auth ? "로그아웃" : "로그인"}</div>
         </div>
       </div>
       <div className="logo">

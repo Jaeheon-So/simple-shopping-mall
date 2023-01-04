@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDebounce } from "../hooks/useDebounce";
 import { useQuery } from "../hooks/useQuery";
 import "./ProductAll.scss";
 
-const ProductAll = () => {
+const ProductAll = ({ auth }) => {
+  let navigate = useNavigate();
   let query = useQuery();
   let [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -26,6 +28,14 @@ const ProductAll = () => {
     setIsLoading(false);
   };
 
+  const goDetail = (id) => {
+    if (auth) navigate(`/product/${id}`);
+    else {
+      alert("로그인 해주세요");
+      navigate("/login");
+    }
+  };
+
   useEffect(() => {
     if (searchTerm) getSearchProduct();
     else if (searchTerm === null || searchTerm === "") {
@@ -42,7 +52,11 @@ const ProductAll = () => {
           <div>찾고자하는 검색어 "{searchTerm}"에 맞는 결과가 없습니다</div>
         ) : (
           products.map((product) => (
-            <div className="product" key={product.id}>
+            <div
+              className="product"
+              key={product.id}
+              onClick={() => goDetail(product.id)}
+            >
               <img
                 src={product.img}
                 alt={product.title}
