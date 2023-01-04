@@ -7,7 +7,6 @@ import Login from "./pages/Login";
 import PrivateRoute from "./pages/PrivateRoute";
 import ProductAll from "./pages/ProductAll";
 
-// 로그인 기능 보강
 // 상품 디테일 페이지 만들기
 
 function App() {

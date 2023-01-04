@@ -1,0 +1,103 @@
+.product-container {
+  .btn {
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    color: #212529;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 0.375rem 0.75rem;
+    text-align: center;
+    text-decoration: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  .temp {
+    width: 50%;
+    display: flex;
+    &.right {
+      justify-content: flex-start;
+    }
+    &.left {
+      justify-content: flex-end;
+    }
+  }
+  .image {
+    img {
+      height: 500px;
+    }
+  }
+  .infos {
+    .info {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .choice {
+      color: #63786a;
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+    .dropdown-wrapper {
+      position: relative;
+      padding-bottom: 20px;
+      display: inline-block;
+      &:hover .dropdown {
+        display: block;
+      }
+      .dropdown-toggle {
+        border-color: #212529;
+        color: #212529;
+        &:hover {
+          background-color: #212529;
+          border-color: #212529;
+          color: #fff;
+        }
+        &::after {
+          border-bottom: 0;
+          border-left: 0.3em solid transparent;
+          border-right: 0.3em solid transparent;
+          border-top: 0.3em solid;
+          content: "";
+          display: inline-block;
+          margin-left: 0.255em;
+          vertical-align: 0.255em;
+        }
+      }
+      .dropdown {
+        display: none;
+        position: absolute;
+        top: 45px;
+        box-sizing: border-box;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 5px;
+        width: 130%;
+        background-color: #fff;
+        .size {
+          padding: 7px 15px;
+          cursor: pointer;
+          &:hover {
+            background-color: #e9ecef;
+          }
+        }
+      }
+    }
+    .add {
+      width: 100%;
+      background-color: #212529;
+      border-color: #212529;
+      color: #fff;
+      &:hover {
+        color: #fff;
+        background-color: #424649;
+        border-color: #373b3e;
+      }
+    }
+  }
+}
