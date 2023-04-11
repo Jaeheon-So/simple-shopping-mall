@@ -7,7 +7,7 @@ import Login from "./pages/Login";
 import PrivateRoute from "./pages/PrivateRoute";
 import ProductAll from "./pages/ProductAll";
 
-// 상품 디테일 페이지 만들기
+// 상품 디테일 페이지 추가 시 액션 정하기
 
 function App() {
   let [auth, setAuth] = useState(

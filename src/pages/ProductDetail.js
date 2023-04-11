@@ -13,13 +13,16 @@ const ProductDetail = () => {
     setSize(size);
   };
 
+  const addProduct = () => {
+    console.log("added" + id + size);
+  };
+
   const getProductDetail = async () => {
     setIsLoading(true);
     const res = await fetch(url + `/${id}`);
     const data = await res.json();
     setProduct(data);
     setIsLoading(false);
-    console.log(data);
   };
 
   useEffect(() => {
@@ -59,7 +62,9 @@ const ProductDetail = () => {
                 </div>
               </div>
               <div>
-                <button className="add btn">추가</button>
+                <button className="add btn" onClick={addProduct}>
+                  추가
+                </button>
               </div>
             </div>
           </div>
